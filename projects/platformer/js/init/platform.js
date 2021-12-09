@@ -43,9 +43,9 @@
         //third platform
         createPlatform(430, 600, 0.7,);
         //fourth platform
-        createPlatform(470, 345, 0.5);
+        createPlatform(270, 345, 0.5);
         //fifth platform
-        createPlatform(170, 430, 0.5);
+        createPlatform(10, 430, 0.5);
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
     }
