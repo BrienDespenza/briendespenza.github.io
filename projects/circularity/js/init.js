@@ -20,12 +20,28 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-
-
+        var circle; //declared variable circle. left-undifined. I will use this later to hold individual circles
+        var circles = []; //empty array that is waiting to hold the circles
         // TODO 2 : Create a function that draws a circle 
-        
+         // Code to draw a circle
+
+         //below the function draws a circle(31) and adds a velocity(32) which is then pushed into the empty circles array(33)
+
+         function drawCircle(){
+            circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            physikz.addRandomVelocity(circle, canvas, 10, 10);
+            view.addChild(circle);
+            circles.push(circle);
+         }
+
 
         // TODO 3 / 8 : Call the drawCircle() function 
+        ///the loop is set up to allow for the circles to be drawn multiple times without it being D.R.Y
+        for(var i = 0; i <= 100 ; i++){
+            drawCircle();
+        }
+
+
 
 
         ////////////////////////////////////////////////////////////
@@ -39,13 +55,17 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-
+           
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-           
+            
 
             // TODO 9 : Iterate over the array
-           
+            //this basically animates the circles by updating their postions without being repetative
+           for(var k = 0; k < circles.length; k++){
+            physikz.updatePosition(circles[k]);
+            game.checkCirclePosition(circles[k]);
+           }
             
         }
     
@@ -56,11 +76,24 @@ var init = function (window) {
         */
         game.checkCirclePosition = function(circle) {
 
+            //the code below basically sets the perameters for the boundries the circles are held within for the screen which will help
+            //them know where to stay
+
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }
+            if (circle.x < 0){
+                circle.x = canvas.width
+            }
+            if(circle.y < 0){
+                circle.y = canvas.height
+            }
+            if(circle.y > canvas.height){
+                circle.y = 0
+            }
             
+
             // TODO 7 : YOUR CODE STARTS HERE //////////////////////
             
 
