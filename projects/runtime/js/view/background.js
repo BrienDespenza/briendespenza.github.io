@@ -98,7 +98,14 @@ var background = function (window) {
 }
             
             // TODO 5: Part 2 - Parallax
-            
+            //loops the buildings and moves them by 0.5 pixels
+
+            for (var i = 0; i < buildings.length; i++){
+                buildings[i].x = buildings[i].x - 0.5; //moves the buildings x position by .5 pixels
+                    if(buildings[i].x < -100){ //checks to see if the buildings x poistion is off the left side then repostions it to have it appear on the right
+                        buildings[i].x = canvas.width;
+                    }
+            }
 
         } // end of update function - DO NOT DELETE
         
