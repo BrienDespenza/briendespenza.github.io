@@ -40,22 +40,25 @@ var background = function (window) {
 
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'purple');
+            var backgroundFill = draw.rect(canvasWidth,groundY,'#181e71');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
             
                 //everytime the loop runs it creates a circle with a rancom x and y respective to the canvas and is added to it
             for(var i = 0; i <= 100; i++){
-                var circle = draw.circle(3,'white','LightGray',3);// creares a variable called circle that holds each circle
-                circle.x = canvasWidth*Math.random();// multiplies canvasWidth with a random decimal to assign it to circle.x
-                circle.y = groundY*Math.random();//multiplies groundY with a random decimal to assign it to circle Y
-                background.addChild(circle); // adds circle to backghround
+                var star = draw.bitmap('img/star.png');
+               // var circle = draw.circle(3,'white','LightGray',3);// creares a variable called circle that holds each circle
+                star.x = canvasWidth*Math.random();// multiplies canvasWidth with a random decimal to assign it to circle.x
+                star.y = groundY*Math.random();//multiplies groundY with a random decimal to assign it to circle Y
+                background.addChild(star); // adds circle to backghround
+                star.scaleX = 0.1;
+                star.scaleY = 0.1;
             }
             
                  var moon = draw.bitmap('img/moon.png'); //created a variable called moon. Draw.bitmap draws the img and stores it in the images folder
             moon.x = canvasWidth - 300; //assigns x corridnate of moon 
-            moon.y = 100; //assigns y corridnate of moon 
+            moon.y = 1; //assigns y corridnate of moon 
             moon.scaleX = - 0.5; //controls the x placement of the moon
             moon.scaleY = 0.5; //controls the y placemnet of the moon
             background.addChild(moon);
@@ -72,11 +75,11 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add a tree
             tree = tree = draw.bitmap('img/tree.png'); //reassigns the drawn image of the tree
-            tree.x = 600; //assigns an x value to tree
-            tree.y = groundY - 230;
+            tree.x = 500; //assigns an x value to tree
+            tree.y = groundY - 325;
             background.addChild(tree);
-            tree.scaleX = 1; //changes the x scale of tree
-            tree.scaleY = 1; //changes the y scale of tree
+            tree.scaleX = 0.5; //changes the x scale of tree
+            tree.scaleY = 0.5; //changes the y scale of tree
             background.addChild(tree);
 
         } // end of render function - DO NOT DELETE
