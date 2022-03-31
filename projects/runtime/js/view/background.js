@@ -64,9 +64,9 @@ var background = function (window) {
             background.addChild(moon);
 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i=0;i<5;i++) {
-            var buildingHeight = 300*Math.random(); //creates a variable called buildingHeight that holds the height of the building in pixels 
-            var building = draw.rect(75,buildingHeight,'Black','Black',1); // creates a variable called building that holds the data for the drawn building
+            for(var i=0;i<10;i++) {
+            var buildingHeight = 350*Math.random(); //creates a variable called buildingHeight that holds the height of the building in pixels 
+            var building = draw.rect(75,buildingHeight,'#1a1723'); // creates a variable called building that holds the data for the drawn building
             building.x = 200*i; //positions the x of each building 200 pixeks from the next building
             building.y = groundY-buildingHeight; //sets the y of the building off of GroundY based on buildingHeight
             background.addChild(building); // adds building to background so it can be seen
@@ -76,10 +76,10 @@ var background = function (window) {
             // TODO 4: Part 1 - Add a tree
             tree = tree = draw.bitmap('img/tree.png'); //reassigns the drawn image of the tree
             tree.x = 500; //assigns an x value to tree
-            tree.y = groundY - 325;
+            tree.y = groundY - 310;
             background.addChild(tree);
-            tree.scaleX = 0.5; //changes the x scale of tree
-            tree.scaleY = 0.5; //changes the y scale of tree
+            tree.scaleX = 0.48; //changes the x scale of tree
+            tree.scaleY = 0.48; //changes the y scale of tree
             background.addChild(tree);
 
         } // end of render function - DO NOT DELETE
