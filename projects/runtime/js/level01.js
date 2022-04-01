@@ -44,6 +44,9 @@ var level01 = function (window) {
         { "type": "reward", "x": 700, "y": groundY -50 },
         { "type": "reward", "x": 600, "y": groundY -50},
         { "type": "reward", "x": 1000, "y": groundY -50},
+
+        
+
         ]
     };
         window.levelData = levelData;
@@ -141,12 +144,12 @@ var level01 = function (window) {
     };
         }
 
-        function createReaward(x, y){
+        function createReward(x, y){
               var reward = game.createGameItem('reward', 25); //creates game item and stores it in the variable enemy
         //var blueSquare = draw.rect(50,50,'blue'); //creates rectangle that stores as redSquare
         var orb = draw.bitmap('img/orb.png');
-        orb.x = -25; 
-        orb.y = -25;
+        orb.x = -10; 
+        orb.y = -20;
         reward.addChild(orb); //adds the redSquare to the enemy game item
 
 
@@ -157,11 +160,17 @@ var level01 = function (window) {
 
         reward.velocityX = -1; //causes the reward to move one pixel to the left on the x position
 
-        reward.rotationalVelocity = 10; //makes reward rotate
+        //reward.rotationalVelocity = 10; //makes reward rotate
 
         reward.onPlayerCollision = function() {
             console.log('The reward has hit Halle');
             game.changeIntegrity(10) //gives health when hit
+
+         };
+         reward.onProjectileCollision = function(){
+             console.log('The project has hit Halle');
+             game.increaseScore(200);
+             reward.fadeOut();
          };
 
         }
